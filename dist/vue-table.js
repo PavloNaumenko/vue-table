@@ -627,8 +627,9 @@ exports.default = {
             }
             var self = this;
             this.$http.get(url, this.httpData, this.httpOptions).then(function (response) {
-                self.tableData = self.getObjectValue(response.data, self.dataPath, null);
-                self.tablePagination = self.getObjectValue(response.data, self.paginationPath, null);
+                var data = response.json();
+                self.tableData = self.getObjectValue(data, self.dataPath, null);
+                self.tablePagination = self.getObjectValue(data, self.paginationPath, null);
                 if (self.tablePagination === null) {
                     console.warn('vuetable: pagination-path "' + self.paginationPath + '" not found. ' + 'It looks like the data returned from the sever does not have pagination information ' + 'or you may have set it incorrectly.');
                 }
@@ -1036,9 +1037,9 @@ if (module.hot) {(function () {  module.hot.accept()
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-a86009c0", module.exports)
+    hotAPI.createRecord("_v-c1033366", module.exports)
   } else {
-    hotAPI.update("_v-a86009c0", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-c1033366", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":"vue","vue-hot-reload-api":1,"vueify/lib/insert-css":2}],4:[function(require,module,exports){
@@ -1064,9 +1065,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-50fb97da", module.exports)
+    hotAPI.createRecord("_v-73d8a272", module.exports)
   } else {
-    hotAPI.update("_v-50fb97da", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-73d8a272", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"./VuetablePaginationMixin.vue":6,"vue":"vue","vue-hot-reload-api":1}],5:[function(require,module,exports){
@@ -1132,9 +1133,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-15a35d8b", module.exports)
+    hotAPI.createRecord("_v-17a03778", module.exports)
   } else {
-    hotAPI.update("_v-15a35d8b", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-17a03778", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"./VuetablePaginationMixin.vue":6,"vue":"vue","vue-hot-reload-api":1}],6:[function(require,module,exports){
@@ -1252,9 +1253,9 @@ if (module.hot) {(function () {  module.hot.accept()
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   if (!module.hot.data) {
-    hotAPI.createRecord("_v-e59f6b12", module.exports)
+    hotAPI.createRecord("_v-b3bb00ac", module.exports)
   } else {
-    hotAPI.update("_v-e59f6b12", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+    hotAPI.update("_v-b3bb00ac", module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
   }
 })()}
 },{"vue":"vue","vue-hot-reload-api":1}],7:[function(require,module,exports){

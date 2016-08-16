@@ -391,8 +391,9 @@ export default {
             var self = this
             this.$http.get(url, this.httpData, this.httpOptions)
                 .then(function(response) {
-                    self.tableData = self.getObjectValue(response.data, self.dataPath, null)
-                    self.tablePagination = self.getObjectValue(response.data, self.paginationPath, null)
+                    var data = response.json()
+                    self.tableData = self.getObjectValue(data, self.dataPath, null)
+                    self.tablePagination = self.getObjectValue(data, self.paginationPath, null)
                     if (self.tablePagination === null) {
                         console.warn('vuetable: pagination-path "' + self.paginationPath + '" not found. '
                             + 'It looks like the data returned from the sever does not have pagination information '
