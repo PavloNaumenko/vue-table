@@ -42,7 +42,12 @@
                                     <td v-if="field.name == '__actions'" class="vuetable-actions {{field.dataClass}}">
                                         <template v-for="action in itemActions">
                                             <button class="{{ action.class }}" @click="callAction(action.name, item)" v-attr="action.extra">
-                                                <i class="{{ action.icon }}"></i> {{ action.label }}
+                                                <template v-if="action.icon == 'material-icons'">
+                                                    <i class="{{ action.icon }}">{{ action.label }}</i>
+                                                </template>
+                                                <template v-else>
+                                                    <i class="{{ action.icon }}"></i> {{ action.label }}
+                                                </template>
                                             </button>
                                         </template>
                                     </td>
@@ -733,7 +738,7 @@ export default {
             this.$dispatch(this.eventPrefix+'detail-row-clicked', dataItem, event)
         },
         callPaginationConfig: function() {
-            if (typeof this.$parent[this.paginationConfigCallback] === 'function') {
+            if (this.$parent && typeof this.$parent[this.paginationConfigCallback] === 'function') {
                 this.$parent[this.paginationConfigCallback].call(this.$parent, this.$refs.pagination.$options.name)
             }
         },
